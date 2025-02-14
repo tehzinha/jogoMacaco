@@ -1,12 +1,13 @@
 body {
-  background-color: #503006;
+  background-color: #503006; /* Fundo marrom */
   font-family: 'Arial', sans-serif;
 }
+
 .game {
   position: absolute;
   width: 1100px;
   height: calc(100vh - 20px);
-  background-image: url('img/floresta.jpg');
+  background-image: url('img/cenario.jpg');
   background-repeat: no-repeat;
   background-size: 100% 100%;
   border-radius: 10px;
@@ -15,201 +16,170 @@ body {
   left: 130px;
 }
 
-
 .player {
   position: absolute;
   transition: transform 0.2s ease-in-out;
 }
 
-
 .player1 {
-top: 600px;
-left: 100px;
-bottom: 0;
-transition: transform 0.2s ease-in-out;
-position: absolute;
-
-}
-
-.player2 {
-top: 580px;
-left: 5px;
-position: absolute;
-bottom: 0;
-transition: transform 0.2s ease-in-out;
+  top: auto;
+  left: 100px;
+  bottom: 0;
+  transition: transform 0.2s ease-in-out;
+  position: absolute;
 }
 
 .banana {
-position: absolute;
-top: 220px;
-left: 370px;
-width: 30px;
-height: 30px;
-background-image: url('img/banana.png');
-background-size: 100% 100%;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-image: url('img/banana.png');
+  background-size: 100% 100%;
+  z-index: 5;
 }
 
-.banana:nth-child(1) {
-  top: 220px;
-  left: 370px;
-}
-
-.banana:nth-child(2) {
-  top: 240px;
-  left: 400px;
-}
-
-.banana:nth-child(3) {
-  top: 260px;
-  left: 430px;
-}
-
-.banana:nth-child(4) {
-  top: 280px;
-  left: 460px;
-}
-
-.banana:nth-child(5) {
-  top: 300px;
-  left: 490px;
-}
-.banana:nth-child(6) {
-  top: 320px;
-  left: 520px;
-}
-.banana:nth-child(7) {
-  top: 340px;
-  left: 550px;
-}
-
-
-
-/* Adicione mais bananas ajustando as posições conforme necessário */
+.banana:nth-child(1) { top: 220px; left: 370px; }
+.banana:nth-child(2) { top: 240px; left: 400px; }
+.banana:nth-child(3) { top: 260px; left: 430px; }
+.banana:nth-child(4) { top: 280px; left: 460px; }
+.banana:nth-child(5) { top: 300px; left: 490px; }
+.banana:nth-child(6) { top: 320px; left: 520px; }
+.banana:nth-child(7) { top: 340px; left: 550px; }
 
 .portal {
-position: absolute;
-top: 0px;
-left: 2000px;
-width: 100px;
-height: 100px;
-background-image: url('img/portal.png');
-background-size: cover;
+  position: absolute;
+  top: 50%;
+  left: 90%;
+  width: 100px;
+  height: 100px;
+  background-image: url('img/portal.png');
+  background-size: cover;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.8);
+  z-index: 10;
 }
 
 #level {
-position: absolute;
-top: 0px;
-left: 10px;
-font-size: 24px;
-color: #fff;
-text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  font-size: 24px;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 h1 {
-font-size: 36px;
-color: #fff;
-text-align: center;
-margin-top: 100px;
-text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 36px;
+  color: #fff;
+  text-align: center;
+  margin-top: 100px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 h2 {
-font-size: 28px;
-color: #fff;
-text-align: center;
-margin-top: 10px;
-
+  font-size: 28px;
+  color: #fff;
+  text-align: center;
+  margin-top: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-
-h2 {
-font-size: 28px;
-color: #fff;
-text-align: center;
-margin-top: 10px;
-text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
+/* Vinhas com efeito de balanço */
 .vine1 {
-top: 70px;
-left: 0px;
-position: absolute;
-width: 10px;
-height: 50px;
-background-size: 100% 100%;
-transform-origin: center bottom;
-transition: transform 0.2s ease-in-out;
+  top: 150px;
+  left: 0px;
+  position: absolute;
+  width: 10px;
+  height: 50px;
+  background-image: url('img/vine.png');
+  background-size: 100% 100%;
+  transform-origin: center bottom;
+  animation: vineSwing1 2s ease-in-out infinite;
 }
-
 
 .vine2 {
-top: 50px;
-left: 200px;
-position: absolute;
-width: 10px;
-height: 100px;
-background-size: 100% 100%;
-transform-origin: center bottom;
-transition: transform 0.2s ease-in-out;
+  top: 50px;
+  left: 25%;
+  position: absolute;
+  width: 10px;
+  height: 20px;
+  background-image: url('img/vine.png');
+  background-size: 100% 100%;
+  transform-origin: center bottom;
+  animation: vineSwing2 2s ease-in-out infinite;
 }
-
 
 .vine3 {
-top: 70px;
-left: 300px;
-position: absolute;
-width: 10px;
-height: 100px;
-background-size: 100% 100%;
-transform-origin: center bottom;
-transition: transform 0.2s ease-in-out;
+  top: 70px;
+  left: 40%;
+  position: absolute;
+  width: 10px;
+  height: 200px;
+  background-image: url('img/vine.png');
+  background-size: 100% 100%;
+  transform-origin: center bottom;
+  animation: vineSwing3 2s ease-in-out infinite;
 }
-
 
 .vine4 {
-top: 80px;
-left: 500px;
-position: absolute;
-width: 10px;
-height: 100px;
-background-size: 100% 100%;
-transform-origin: center bottom;
-transition: transform 0.2s ease-in-out;
+  top: 25%;
+  left: 65%;
+  position: absolute;
+  width: 10px;
+  height: 200px;
+  background-image: url('img/vine.png');
+  background-size: 100% 100%;
+  transform-origin: center bottom;
+  animation: vineSwing4 2s ease-in-out infinite;
 }
-
-
 
 .morro {
-position: absolute;
-top: 500px;
-left: 900px;
-width: 1200px;
-height: 200px;
-background-image: url('img/cloud.png');
-background-size: 100% 100%;
-border-radius: 20px;
+  position: absolute;
+  top: 450px; /* Ajusta a altura do morro */
+  left: 70%; /* Garante que comece na esquerda */
+  width: 30%; /* Faz o morro ocupar toda a largura da tela */
+  height: 300px; /* Defina a altura do morro */
+  background-image: url('img/morro.jpg');
+  background-size: cover; /* Garante que a imagem cubra toda a área */
+  border-radius: 20px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5); /* Sombra para destacar */
 }
 
-.lodo{
+
+.lodo {
   position: absolute;
-  top: 500px;
+  top: 85%;
   left: 300px;
+  width: 200px;
+  height: 100px;
   background-image: url('img/lodo.png');
   background-size: 100% 100%;
   border-radius: 0px;
 }
-.cloud {
-position: absolute;
-top: 200px;
-left: 100px;
-width: 100px;
-height: 30px;
-background-image: url('img/cloud.png');
-background-size: 100% 100%;
-animation: cloudUpDown 4s ease-in-out infinite;
-border-radius: 30px;
 
+.cloud {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 120px;
+  height: 100px;
+  background-image: url('img/cloud.png');
+  background-size: 100% 100%;
+  animation: cloudUpDown 4s ease-in-out infinite;
+  border-radius: 30px;
 }
+
+.cloud2 {
+  position: absolute;
+  top: 150px;
+  left: 600px;
+  width: 120px;
+  height: 100px;
+  background-image: url('img/cloud.png');
+  background-size: 100% 100%;
+  animation: cloudUpDown 5s ease-in-out infinite;
+  border-radius: 30px;
+}
+
 
 @keyframes cloudUpDown {
   0% {
@@ -221,4 +191,29 @@ border-radius: 30px;
   100% {
     transform: translateY(0);
   }
+}
+
+/* Efeitos de balanço nas vinhas */
+@keyframes vineSwing1 {
+  0% { transform: rotate(0); }
+  50% { transform: rotate(10deg); }
+  100% { transform: rotate(0); }
+}
+
+@keyframes vineSwing2 {
+  0% { transform: rotate(0); }
+  50% { transform: rotate(-10deg); }
+  100% { transform: rotate(0); }
+}
+
+@keyframes vineSwing3 {
+  0% { transform: rotate(0); }
+  50% { transform: rotate(8deg); }
+  100% { transform: rotate(0); }
+}
+
+@keyframes vineSwing4 {
+  0% { transform: rotate(0); }
+  50% { transform: rotate(-8deg); }
+  100% { transform: rotate(0); }
 }

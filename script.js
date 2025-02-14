@@ -1,35 +1,31 @@
 // Seleciona os elementos do jogo
 const game = document.querySelector('.game');
 const player1 = document.querySelector('.player1');
-const player2 = document.querySelector('.player2');
-const portal= document.querySelector('.portal');
-const morro= document.querySelector('.morro');
-const vine=document.querySelector('.vine');
+const portal = document.querySelector('.portal');
+const morro = document.querySelector('.morro');
+const vine = document.querySelector('.vine');
+
+// Inicializa as posições dos jogadores se ainda não tiverem valores definidos
+if (!player1.style.top) player1.style.top = '85%';
+if (!player1.style.left) player1.style.left = '0px';
 
 // Função para movimentar os jogadores
 function movePlayers(event) {
   const playerSpeed = 10;
 
-  if (event.key === 'w') {
-    player1.style = parseInt(player1.style.top) - playerSpeed + 'px';
-  } else if (event.key === 's') {
-    player1.style = parseInt(player1.style.down) + playerSpeed + 'px';
-  } else if (event.key === 'a') {
-    player1.style = parseInt(player1.style.left) - playerSpeed + 'px';
-  } else if (event.key === 'd') {
-    player1.style = parseInt(player1.style.right) + playerSpeed + 'px';
+  // Pega a posição atual dos jogadores
+  let top = parseInt(player1.style.top);
+  let left = parseInt(player1.style.left);
 
-    
-  } else if (event.key === 'ArrowUp') {
-    player2.style = parseInt(player2.style.top) - playerSpeed + 'px';
-  } else if (event.key === 'ArrowDown') {
-    player2.style = parseInt(player2.style.down) + playerSpeed + 'px';
-  } else if (event.key === 'ArrowLeft') {
-    player2.style = parseInt(player2.style.left) - playerSpeed + 'px';
-  } else if (event.key === 'ArrowRight') {
-    player2.style = parseInt(player2.style.right) + playerSpeed + 'px';
+  if (event.key === 'w') {
+    player1.style.top = (top - playerSpeed) + 'px';
+  } else if (event.key === 's') {
+    player1.style.top = (top + playerSpeed) + 'px';
+  } else if (event.key === 'a') {
+    player1.style.left = (left - playerSpeed) + 'px';
+  } else if (event.key === 'd') {
+    player1.style.left = (left + playerSpeed) + 'px';
   }
-  document.addEventListener('keydown', movePlayers);
 
   adjustGamePosition(); // Chama a função para ajustar a posição do jogo
 }
@@ -39,9 +35,24 @@ function adjustGamePosition() {
   const playerSpeed = 10;
   const gameWidth = game.offsetWidth;
   const gameHeight = game.offsetHeight;
-  const player1PositionX = parseInt(player1.style.left);
-  const player2PositionX = parseInt(player2.style.left);
-  const player1PositionY = parseInt(player1.style.top);
-  const player2PositionY = parseInt(player2.style.top);
 
+  // Obtém as posições dos jogadores (certifique-se de que as posições existam)
+  const player1PositionX = parseInt(player1.style.left);
+  const player1PositionY = parseInt(player1.style.top);
+
+  // Ajuste do jogo se o jogador atingir as bordas
+  if (player1PositionX < 0) {
+    game.style.left = (parseInt(game.style.left) + playerSpeed) + 'px'; // Move o jogo para a direita
+  } else if (player1PositionX + player1.offsetWidth > gameWidth) {
+    game.style.left = (parseInt(game.style.left) - playerSpeed) + 'px'; // Move o jogo para a esquerda
+  }
+
+  if (player1PositionY < 0) {
+    game.style.top = (parseInt(game.style.top) + playerSpeed) + 'px'; // Move o jogo para baixo
+  } else if (player1PositionY + player1.offsetHeight > gameHeight) {
+    game.style.top = (parseInt(game.style.top) - playerSpeed) + 'px'; // Move o jogo para cima
+  }
 }
+
+// Adiciona o evento para movimentar os jogadores
+document.addEventListener('keydown', movePlayers);

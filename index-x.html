@@ -4,28 +4,58 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-  <title>Jogo dos Macaquinhos</title>
+  <title>Monkey Game🕹️</title>
 </head>
 <body>
-  <div class="game">
-    <div class="player player1"><img src="img/macaquinho.png" width="80px" height="80px"></div>
-    <div class="player player2"><img src="img/macaquinha.png" width="150px" height="150px"></div>    
-    <div class="banana banana1"></div>
-    <div class="banana banana2"></div>
-    <div class="banana banana3"></div>
-    <div class="banana banana4"></div>
-    <div class="banana banana5"></div>
-    <div class="banana banana6"></div>
-    <div class="portal"></div>
-    <div class="morro"></div>
-    <div class="lodo"></div>
-    <div class="vine vine1"><img src="img/vine.png"></div>
-    <div class="vine vine2"><img src="img/vine.png"></div>
-    <div class="vine vine3"><img src="img/vine.png"></div>
-    <div class="vine vine4"><img src="img/vine.png"></div>
-    <div class="cloud"></div>
-    <div class="lodo"></div>
+  <div class="game-container">
+    <!-- Imagem de fundo do cenário -->
+    <div class="background">
+      <img src="img/cenario.png" alt="Cenário" id="background-img">
+    </div>
+
+    <!-- Elementos do jogo -->
+    <div class="game">
+      <div class="player player1">
+        <img src="img/macaquinho.png" width="80px" height="80px">
+      </div>    
+      <div class="banana banana1"></div>
+      <div class="banana banana2"></div>
+      <div class="banana banana3"></div>
+      <div class="banana banana4"></div>
+      <div class="banana banana5"></div>
+      <div class="banana banana6"></div>
+
+      <!-- Elementos de obstáculos e interações -->
+      <div class="portal"></div>
+      <div class="morro"></div>
+      <div class="lodo"></div>
+
+      <!-- Plantas e vinhas -->
+      <div class="vine vine1">
+        <img src="img/vine.png" alt="Vine">
+      </div>
+      <div class="vine vine2">
+        <img src="img/vine.png" alt="Vine">
+      </div>
+      <div class="vine vine3">
+        <img src="img/vine.png" alt="Vine">
+      </div>
+      <div class="vine vine4">
+        <img src="img/vine.png" alt="Vine">
+      </div>
+
+      <!-- Nuvens no céu -->
+      <div class="cloud cloud1"></div>
+      <div class="cloud cloud2"></div>
+      <div class="cloud cloud3"></div>
+    </div>
+    
+    <!-- HUD (Heads Up Display) -->
+    <div class="game-info">
+      <h2 id="level">Nível: 1</h2>
+      <h2 id="coins">Bananas coletadas: <span id="score">0</span></h2>
+    </div>
   </div>
-  <h2 id="level">Nível: 1</h2>
-  <h2 id="coins">Bananas coletadas: <span id="score">0</span></h2>
   <script src="script.js"></script>
+</body>
+</html>
